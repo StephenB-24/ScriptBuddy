@@ -57,7 +57,7 @@
             </ListView>
 
             <TextBlock  FontFamily="/Fonts/#Proxima Nova Bold" HorizontalAlignment="Left" Margin="19,25,0,0" Text="Hello, " TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="65,25,0,0" Text="{Binding ProfileName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="195"/>
+            <TextBlock Name="TextBlockProfileName" HorizontalAlignment="Left" Margin="65,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195"/>
             <TextBlock HorizontalAlignment="Left" Margin="17,56,0,0" FontFamily="/Fonts/#Proxima Nova Bold"  Text="Script Count:" TextWrapping="Wrap" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="92,56,0,0" Text="{Binding ElementName=ScriptListView, Path=Items.Count, Mode=OneWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="173"/>
             <TextBlock  FontFamily="/Fonts/#Proxima Nova Bold" HorizontalAlignment="Left" Margin="19,140,0,0" Text="Script Name:" TextWrapping="Wrap" VerticalAlignment="Top"/>

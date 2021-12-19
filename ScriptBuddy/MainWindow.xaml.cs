@@ -523,18 +523,26 @@ namespace ScriptBuddy
         /// <param name="e"></param>
         private void ButtonLoginLogout_Click(object sender, RoutedEventArgs e)
         {
-            if (ButtonLoginLogout.Content.Equals("Logout") || LoggedInUser != null)
+            try
             {
-                LoggedInUser = businessLayer.Logout();
-            }
-            else
-            {
-                LoginWindow lw = new LoginWindow(businessLayer, LoggedInUser);
-                lw.ShowDialog();
-                this.LoggedInUser = lw.User;
-            }
+                if (ButtonLoginLogout.Content.Equals("Logout") || LoggedInUser != null)
+                {
+                    LoggedInUser = businessLayer.Logout();
+                }
+                else
+                {
+                    LoginWindow lw = new LoginWindow(businessLayer, LoggedInUser);
+                    lw.ShowDialog();
+                    this.LoggedInUser = lw.User;
+                }
 
-            RebindUser();
+                RebindUser();
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError(ex.ToString());
+                throw;
+            }
         }
 
 

@@ -59,6 +59,8 @@ namespace ScriptBuddy
 
             InitializeComponent();
 
+            TextBlockProfileName.Text = this.ProfileName;
+
             RebindListBox();
             RebindActiveScriptInfo();
         }
