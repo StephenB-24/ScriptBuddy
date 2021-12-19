@@ -20,7 +20,7 @@ Users can run their scripts within ScriptBuddy or by exporting and running the .
 # Features
 - Account creation / deletion
 - Scripts can be created / updated / deleted
-- Scripts can be personally saved to the database as a personal script, or a community script that all users can access
+- Scripts can be saved to the database as a personal script, or as a community script that all users can access
 - An account window to view one's own personal scripts
 - A community browse page, with the ability to refine search resaults based on tags / a search query
 
