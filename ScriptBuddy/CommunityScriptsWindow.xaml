@@ -1,0 +1,62 @@
+﻿<Window x:Class="ScriptBuddy.CommunityScriptsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScriptBuddy"
+        mc:Ignorable="d"
+        Title="Script Buddy 😊 - Community Scripts" Height="550" Width="800" ResizeMode="NoResize"
+        Background="Transparent"
+        WindowStyle="None"  AllowsTransparency="True" 
+        WindowStartupLocation="Manual" Left="80" Top="80"
+        Style="{StaticResource DefaultFont}" MouseDown="MouseDown_DragScreen" >
+    <Border CornerRadius="20" Background="#FF272537">
+        <Border.Clip>
+            <RectangleGeometry RadiusX="23"
+                               RadiusY="20"
+                               Rect="0,0,800,550"/>
+        </Border.Clip>
+        <Grid Height="511" VerticalAlignment="Top">
+            <Button x:Name="CloseButton" Content="X" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseButton_Click" Width="40" Height="40" Foreground="White" Background="#FF272537" BorderBrush="{x:Null}"/>
+            <TextBox x:Name="TextBoxScriptSearch" Padding="5" Text="Search" HorizontalAlignment="Left" TextAlignment="Left" Margin="25,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="31" TextChanged="TextBoxScriptSearch_TextChanged" Background="#FFCFCFCF"/>
+            <ComboBox x:Name="ComboBoxCommunityTag" IsEditable="True" IsReadOnly="True" Text="Category tags" HorizontalContentAlignment="Left" Margin="410,80,25,0" VerticalAlignment="Top" Height="31" DropDownClosed="ComboBoxCommunityTag_DropDownClosed">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFCFCFCF" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <Button Style="{StaticResource ButtonTheme}"  FontFamily="/Fonts/#Proxima Nova Bold"  Name="ButtonOpenAsNewScript"   Content="Open as new script" Margin="510,456,160,0" Click="ButtonOpenAsNewScript_Click" Height="48" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button  Style="{StaticResource ButtonTheme}"  FontFamily="/Fonts/#Proxima Nova Bold" Name="ButtonInsertIntoCurrent"   Content="Insert into current" Margin="645,456,25,0" Click="ButtonInsertIntoCurrent_Click" Height="48" VerticalAlignment="Top">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Margin="25,19,0,0" FontFamily="/Fonts/#Proxima Nova Bold"  Text="Browse community scripts" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="329" FontSize="22" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Margin="25,51,0,0"   Text="Start searching for scripts made by community members" TextWrapping="Wrap" VerticalAlignment="Top"/>
+             
+            <ListView Name="ListViewScriptsView" ItemsSource="{Binding}" Margin="25,134,25,0" Height="300" VerticalAlignment="Top" Background="#FFECECEC">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" />
+                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding TimeLastSaved}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBlock Name="TextBoxResultsNumbers" HorizontalAlignment="Left" Margin="25,464,0,31" Text="Showing x results of y." TextWrapping="Wrap" Width="139"/>
+            <Button Style="{StaticResource ButtonTheme}" Name="ButtonNextPage" Content="Next Page" HorizontalAlignment="Left" Margin="101,439,0,0" VerticalAlignment="Top" Click="ButtonNextPage_Click" Width="63"/>
+            <Button Style="{StaticResource ButtonTheme}" Name="ButtonPrevPage" Visibility="Hidden" Content="Prev Page" HorizontalAlignment="Left" Margin="25,439,0,0" VerticalAlignment="Top" Click="ButtonPrevPage_Click" Width="63"/>
+        </Grid>
+    </Border>
+    
+</Window>

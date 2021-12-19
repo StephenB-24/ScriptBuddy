@@ -1,0 +1,41 @@
+﻿<Window x:Class="ScriptBuddy.UploadScriptWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScriptBuddy"
+        mc:Ignorable="d"
+        Title="Script Buddy 😊 - Upload a Script" Height="400" Width="600" ResizeMode="NoResize"
+        Style="{StaticResource DefaultFont}" MouseDown="MouseDown_DragScreen"  WindowStyle="None"  AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="Manual" Left="80" Top="80">
+    <Border CornerRadius="20" Background="#FF272537">
+        <Border.Clip>
+            <RectangleGeometry RadiusX="23"
+                               RadiusY="20"
+                               Rect="0,0,600,400"/>
+        </Border.Clip>
+        <Grid>
+            <Button x:Name="CloseButton" Content="X" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseButton_Click" Width="40" Height="40" Foreground="White" Background="#FF272537" BorderBrush="{x:Null}"/>
+            <Label Content="Upload A Script"  FontFamily="/Fonts/#Proxima Nova Bold" FontWeight="Bold" FontSize="24" HorizontalAlignment="Left" Margin="206,25,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Foreground="White"/>
+            <Label Content="Title:"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="16" HorizontalAlignment="Left" Margin="50,80,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Description:"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="16" HorizontalAlignment="Left" Margin="50,135,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Community Tag:"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="16" HorizontalAlignment="Left" Margin="50,190,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Post to the Community:" FontFamily="/Fonts/#Proxima Nova Bold"  FontSize="16" HorizontalAlignment="Left" Margin="50,245,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Button  Style="{StaticResource ButtonTheme}"  FontFamily="/Fonts/#Proxima Nova Bold" Name="ButtonUpload" TabIndex="6" Content="Upload" FontSize="16" HorizontalAlignment="Left" Margin="97,314,0,0" VerticalAlignment="Top" Height="36" Width="188" Click="UploadButton_Click" Background="#FF53D14D"/>
+            <RadioButton Name="RadioButtonAccessibilityPublic"  FontFamily="/Fonts/#Proxima Nova Bold" TabIndex="4" FontSize="16" Content="Yes" HorizontalAlignment="Left" Margin="373,250,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="White"/>
+            <RadioButton Name="RadioButtonAccessibilityPrivate"  FontFamily="/Fonts/#Proxima Nova Bold" TabIndex="5" Content="No" FontSize="16" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <TextBox x:Name="TextBoxDescription" TabIndex="2" HorizontalAlignment="Left" Margin="243,142,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Background="#FFECECEC" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="TextBoxTitle" TabIndex="1" HorizontalAlignment="Left" Margin="243,87,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Background="#FFECECEC" Grid.ColumnSpan="2"/>
+            <ComboBox x:Name="ComboBoxCommunityTag" TabIndex="3" HorizontalAlignment="Left" Margin="243,199,0,0" VerticalAlignment="Top" Width="230" Grid.ColumnSpan="2">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFECECEC" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <Button   FontFamily="/Fonts/#Proxima Nova Bold" Style="{StaticResource ButtonTheme}" x:Name="ButtonCancel" IsCancel="True" TabIndex="7" Content="Cancel" FontSize="16" HorizontalAlignment="Left" Margin="321,314,0,0" VerticalAlignment="Top" Height="36" Width="188" Click="ButtonCancel_Click" Grid.ColumnSpan="2" Background="#FFB94242"/>
+        </Grid>
+    </Border>
+</Window>

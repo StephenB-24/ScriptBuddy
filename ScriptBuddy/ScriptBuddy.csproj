@@ -1,0 +1,85 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BL.CodeGen\CodeGen\**" />
+    <Compile Remove="BL.CodeGen\Models\NewFolder\**" />
+    <EmbeddedResource Remove="BL.CodeGen\CodeGen\**" />
+    <EmbeddedResource Remove="BL.CodeGen\Models\NewFolder\**" />
+    <None Remove="BL.CodeGen\CodeGen\**" />
+    <None Remove="BL.CodeGen\Models\NewFolder\**" />
+    <Page Remove="BL.CodeGen\CodeGen\**" />
+    <Page Remove="BL.CodeGen\Models\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Compiler\Ahk2Exe.exe" />
+    <None Remove="Compiler\ANSI 32-bit.bin" />
+    <None Remove="Compiler\AutoHotkeySC.bin" />
+    <None Remove="Compiler\Unicode 32-bit.bin" />
+    <None Remove="Compiler\Unicode 64-bit.bin" />
+    <None Remove="Fonts\Poppins-Light.ttf" />
+    <None Remove="Fonts\Poppins-Regular.ttf" />
+    <None Remove="Fonts\Proxima Nova Bold.otf" />
+    <None Remove="Fonts\Proxima Nova Thin.otf" />
+    <None Remove="Fonts\ProximaNova-Regular.otf" />
+    <None Remove="Fonts\Smooch-Regular.ttf" />
+    <None Remove="Fonts\SpecialElite-Regular.ttf" />
+    <None Remove="img\delAcc.png" />
+    <None Remove="img\delButton.png" />
+    <None Remove="img\icon.png" />
+    <None Remove="Models\sdkjfjsaojfdjs" />
+    <Compile Include="Models\sdkjfjsaojfdjs" />
+    <Content Include="Compiler\Ahk2Exe.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Compiler\ANSI 32-bit.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Compiler\AutoHotkeySC.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Compiler\Unicode 32-bit.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Compiler\Unicode 64-bit.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Fonts\Poppins-Light.ttf" />
+    <Resource Include="Fonts\Poppins-Regular.ttf" />
+    <Resource Include="Fonts\Proxima Nova Bold.otf" />
+    <Resource Include="Fonts\Proxima Nova Thin.otf" />
+    <Resource Include="Fonts\ProximaNova-Regular.otf" />
+    <Resource Include="Fonts\Smooch-Regular.ttf" />
+    <Resource Include="Fonts\SpecialElite-Regular.ttf" />
+    <Resource Include="img\delAcc.png" />
+    <Resource Include="img\delButton.png" />
+    <Resource Include="img\icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="ClosingConfirmationWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Theme\TextBoxTheme.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

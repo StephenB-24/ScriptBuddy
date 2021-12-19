@@ -1,0 +1,43 @@
+﻿<Window x:Class="ScriptBuddy.ClosingConfirmationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScriptBuddy"
+        mc:Ignorable="d"
+        Title="Script Buddy 😊 - Quit" 
+        Height="141" Width="405"
+        WindowStartupLocation="Manual" Left="1000" Top="80"
+        ResizeMode="NoResize"
+        Style="{StaticResource DefaultFont}" MouseDown="MouseDown_DragScreen"  WindowStyle="None"  AllowsTransparency="True" 
+        Background="Transparent">
+    <Border CornerRadius="20" Background="#FFFF2200">
+        <Border.Clip>
+            <RectangleGeometry RadiusX="23"
+                               RadiusY="20"
+                               Rect="0,0,405,141"/>
+        </Border.Clip>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Width="404">
+            <Button x:Name="CloseButton" Content="X" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseButton_Click" Width="40" Height="40" Foreground="White" Background="#FFFF2200" BorderBrush="{x:Null}"/>
+            <Label Content="There are still some scripts running"   FontFamily="/Fonts/#Proxima Nova Bold" FontSize="24" HorizontalAlignment="Center" Foreground="Black"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <Button  Style="{StaticResource ButtonTheme}" x:Name="ButtonClose"   FontFamily="/Fonts/#Proxima Nova Bold"   FontSize="20" Click="ButtonClose_Click" Content="Close all scripts and quit" Margin="0,0,10,0" Width="264" Background="#FFE00000">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button  Style="{StaticResource ButtonTheme}"   FontFamily="/Fonts/#Proxima Nova Bold"  x:Name="ButtonCancel" FontSize="20" Click="ButtonCancel_Click" Content="Return" Width="80">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
+</Window>

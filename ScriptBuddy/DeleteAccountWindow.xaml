@@ -1,0 +1,28 @@
+﻿<Window x:Class="ScriptBuddy.DeleteAccountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScriptBuddy"
+        mc:Ignorable="d"
+        Title="DeleteAccountWindow" ResizeMode="NoResize" Height="275" Width="350"
+        Style="{StaticResource DefaultFont}" MouseDown="MouseDown_DragScreen"  WindowStyle="None"  AllowsTransparency="True" 
+        Background="Transparent">
+    <Border CornerRadius="20" Background="#FF272537">
+        <Border.Clip>
+            <RectangleGeometry RadiusX="23"
+                               RadiusY="20"
+                               Rect="0,0,350,275"/>
+        </Border.Clip>
+        <Grid>
+            <Button x:Name="CloseButton" Content="X" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseButton_Click" Width="40" Height="40" Foreground="White" Background="#FF272537" BorderBrush="{x:Null}"/>
+            <Label Content="Warning!" FontSize="24"   FontFamily="/Fonts/#Proxima Nova Bold"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,14,0,0" Foreground="Red"/>
+            <TextBlock HorizontalAlignment="Center"   TextAlignment="Center" Margin="0,61,0,0" Text="Are you sure you want to delete your account? You cannot undo this." TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
+            <TextBlock HorizontalAlignment="Center"   TextAlignment="Center" Text="Enter your password to confirm this action:" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Margin="0,117,0,0"/>
+            <PasswordBox Name="PasswordBoxPassword" HorizontalAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Center" Width="158" Height="21" Background="#FFECECEC"/>
+            <Button Name="ButtonDeleteAccount" BorderThickness="0" Background="{x:Null}" Foreground="#FFBB1616"   FontFamily="/Fonts/#Proxima Nova Bold"  Content="Delete Account" HorizontalAlignment="Center" Margin="0,198,0,0" VerticalAlignment="Top" Click="ButtonDeleteAccount_Click" FontSize="18"/>
+            <CheckBox Name="CheckBoxKeepPublic" Padding="1"  Content="Keep my public scripts accessible to other users" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Foreground="#FF8B8B8B" FontSize="9" Background="#FF616161"/>
+        </Grid>
+    </Border>
+
+</Window>

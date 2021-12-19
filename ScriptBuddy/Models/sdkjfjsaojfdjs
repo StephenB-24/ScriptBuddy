@@ -1,0 +1,318 @@
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+
+#nullable disable
+
+namespace ScriptBuddy.Models
+{
+    public partial class d6304c5_behnkesContext : DbContext
+    {
+        public d6304c5_behnkesContext()
+        {
+        }
+
+        public d6304c5_behnkesContext(DbContextOptions<d6304c5_behnkesContext> options)
+            : base(options)
+        {
+        }
+
+        public virtual DbSet<Action> Actions { get; set; }
+        public virtual DbSet<CharacterSequenceProperty> CharacterSequenceProperties { get; set; }
+        public virtual DbSet<HotStringProperty> HotStringProperties { get; set; }
+        public virtual DbSet<KeyListenerProperty> KeyListenerProperties { get; set; }
+        public virtual DbSet<KeyPressProperty> KeyPressProperties { get; set; }
+        public virtual DbSet<MediaKeyProperty> MediaKeyProperties { get; set; }
+        public virtual DbSet<MouseClickProperty> MouseClickProperties { get; set; }
+        public virtual DbSet<MouseMoveProperty> MouseMoveProperties { get; set; }
+        public virtual DbSet<PauseProperty> PauseProperties { get; set; }
+        public virtual DbSet<Script> Scripts { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseMySQL("server=titansreallyrule.info;user=d6304c5_behnkes;password=sql_738342;database=d6304c5_behnkes;port=3306");
+            }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Action>(entity =>
+            {
+                entity.ToTable("Action");
+
+                entity.HasIndex(e => e.Id, "Id_UNIQUE")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.ScriptId, "Index_ScriptId");
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.ActionPosition).HasColumnType("int(11)");
+
+                entity.Property(e => e.ActionTypeId).HasColumnType("int(11)");
+
+                entity.Property(e => e.ScriptId).HasColumnType("int(11)");
+
+                entity.HasOne(d => d.Script)
+                    .WithMany(p => p.Actions)
+                    .HasForeignKey(d => d.ScriptId)
+                    .HasConstraintName("Fk_ScriptId");
+            });
+
+            modelBuilder.Entity<CharacterSequenceProperty>(entity =>
+            {
+                entity.ToTable("CharacterSequenceProperty");
+
+                entity.HasIndex(e => e.ActionId, "FK_CharacterSequencePropertyActionId_ActionId_idx");
+
+                entity.HasIndex(e => e.Id, "idnew_table_UNIQUE")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.ActionId).HasColumnType("int(11)");
+
+                entity.Property(e => e.CharacterSequence)
+                    .HasMaxLength(255)
+                    .HasDefaultValueSql("'NULL'");
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.CharacterSequenceProperties)
+                    .HasForeignKey(d => d.ActionId)
+                    .HasConstraintName("FK_CharSeqActionId_Id");
+            });
+
+            modelBuilder.Entity<HotStringProperty>(entity =>
+            {
+                entity.ToTable("HotStringProperty");
+
+                entity.HasIndex(e => e.ActionId, "FK_HotStringProperty_ActionId_Id_idx");
+
+                entity.HasIndex(e => e.Id, "idHotStringProperty_UNIQUE")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.ActionId).HasColumnType("int(11)");
+
+                entity.Property(e => e.InputString)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.OutputString)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.HotStringProperties)
+                    .HasForeignKey(d => d.ActionId)
+                    .HasConstraintName("FK_HotStringProperty_ActionId_Id");
+            });
+
+            modelBuilder.Entity<KeyListenerProperty>(entity =>
+            {
+                entity.ToTable("KeyListenerProperty");
+
+                entity.HasIndex(e => e.ActionId, "FK_KeyListener_ActionId_To_Action_ID_idx");
+
+                entity.HasIndex(e => e.Id, "Id_UNIQUE")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.ActionEndPosition)
+                    .HasColumnType("int(11)")
+                    .HasDefaultValueSql("'NULL'");
+
+                entity.Property(e => e.ActionId).HasColumnType("int(11)");
+
+                entity.Property(e => e.Key)
+                    .HasMaxLength(255)
+                    .HasDefaultValueSql("'NULL'");
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.KeyListenerProperties)
+                    .HasForeignKey(d => d.ActionId)
+                    .HasConstraintName("FK_KeyListener_ActionId");
+            });
+
+            modelBuilder.Entity<KeyPressProperty>(entity =>
+            {
+                entity.ToTable("KeyPressProperty");
+
+                entity.HasIndex(e => e.ActionId, "FK_KeyPress_ActionId_idx");
+
+                entity.HasIndex(e => e.Id, "Id_UNIQUE")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.ActionId).HasColumnType("int(11)");
+
+                entity.Property(e => e.KeyPressed)
+                    .IsRequired()
+                    .HasMaxLength(10);
+
+                entity.Property(e => e.PressType)
+                    .IsRequired()
+                    .HasMaxLength(10);
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.KeyPressProperties)
+                    .HasForeignKey(d => d.ActionId)
+                    .HasConstraintName("FK_KeyPress_ActionId");
+            });
+
+            modelBuilder.Entity<MediaKeyProperty>(entity =>
+            {
+                entity.ToTable("MediaKeyProperty");
+
+                entity.HasIndex(e => e.ActionId, "FK_MediaKeyPropertyActionId_ActionId_idx");
+
+                entity.HasIndex(e => e.Id, "Id_UNIQUE")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.ActionId).HasColumnType("int(11)");
+
+                entity.Property(e => e.MediaKey)
+                    .IsRequired()
+                    .HasMaxLength(45);
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.MediaKeyProperties)
+                    .HasForeignKey(d => d.ActionId)
+                    .HasConstraintName("FK_MediaKeyPropertyActionId_ActionId");
+            });
+
+            modelBuilder.Entity<MouseClickProperty>(entity =>
+            {
+                entity.ToTable("MouseClickProperty");
+
+                entity.HasIndex(e => e.ActionId, "FK_MouseClick_ActionId");
+
+                entity.HasIndex(e => e.Id, "Id_UNIQUE")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.ActionId).HasColumnType("int(11)");
+
+                entity.Property(e => e.Button)
+                    .IsRequired()
+                    .HasMaxLength(30);
+
+                entity.Property(e => e.ClickType)
+                    .IsRequired()
+                    .HasMaxLength(5);
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.MouseClickProperties)
+                    .HasForeignKey(d => d.ActionId)
+                    .HasConstraintName("FK_MouseClick_ActionId");
+            });
+
+            modelBuilder.Entity<MouseMoveProperty>(entity =>
+            {
+                entity.ToTable("MouseMoveProperty");
+
+                entity.HasIndex(e => e.ActionId, "FK_MouseMove_ActionId_idx");
+
+                entity.HasIndex(e => e.Id, "Id_UNIQUE")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.ActionId).HasColumnType("int(11)");
+
+                entity.Property(e => e.Xposition)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("XPosition");
+
+                entity.Property(e => e.Yposition)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("YPosition");
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.MouseMoveProperties)
+                    .HasForeignKey(d => d.ActionId)
+                    .HasConstraintName("FK_MouseMove_ActionId");
+            });
+
+            modelBuilder.Entity<PauseProperty>(entity =>
+            {
+                entity.ToTable("PauseProperty");
+
+                entity.HasIndex(e => e.ActionId, "FK_PausePropertyId_ActionId_idx");
+
+                entity.HasIndex(e => e.Id, "Id_UNIQUE")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.ActionId).HasColumnType("int(11)");
+
+                entity.Property(e => e.PauseDuration).HasColumnType("int(11)");
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.PauseProperties)
+                    .HasForeignKey(d => d.ActionId)
+                    .HasConstraintName("FK_ActionId_Id");
+            });
+
+            modelBuilder.Entity<Script>(entity =>
+            {
+                entity.ToTable("Script");
+
+                entity.HasIndex(e => e.Id, "Id_UNIQUE")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.Accessibility).HasColumnType("bit(1)");
+
+                entity.Property(e => e.CommunityTagId).HasColumnType("int(11)");
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.TimeLastSaved).HasDefaultValueSql("'NULL'");
+
+                entity.Property(e => e.UserId).HasColumnType("int(11)");
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.ToTable("User");
+
+                entity.Property(e => e.Id).HasColumnType("int(11)");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(60);
+
+                entity.Property(e => e.ProfileName)
+                    .IsRequired()
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasMaxLength(255);
+            });
+
+            OnModelCreatingPartial(modelBuilder);
+        }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    }
+}

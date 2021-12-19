@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Data Source=(localdb)\ProjectsV13;Initial Catalog=ScriptBuddyDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force -verbose

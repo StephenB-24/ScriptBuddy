@@ -1,0 +1,40 @@
+﻿<Window x:Class="ScriptBuddy.AccountSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScriptBuddy"
+        mc:Ignorable="d"
+        WindowStartupLocation="Manual" Left="80" Top="80"
+        Title="Script Buddy 😊 - Account Settings" Height="450" Width="600" ResizeMode="NoResize"
+        Style="{StaticResource DefaultFont}" MouseDown="MouseDown_DragScreen"  WindowStyle="None"  AllowsTransparency="True"  
+        Background="Transparent">
+    <Border CornerRadius="20" Background="#FF272537">
+        <Border.Clip>
+            <RectangleGeometry RadiusX="23"
+                               RadiusY="20"
+                               Rect="0,0,600,450"/>
+        </Border.Clip>
+
+        <Grid>
+            <Button x:Name="CloseButton" Content="X" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseButton_Click" Width="40" Height="40" Foreground="White" Background="#FF272537" BorderBrush="{x:Null}"/>
+            <Label Content="Account Settings"   FontFamily="/Fonts/#Proxima Nova Bold" FontSize="24" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Name:"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="16" HorizontalAlignment="Left" Margin="107,88,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Username:"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="16" HorizontalAlignment="Left" Margin="107,143,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Password:"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="16" HorizontalAlignment="Left" Margin="107,198,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="New password:"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="16" HorizontalAlignment="Left" Margin="107,253,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Button  Style="{StaticResource ButtonTheme}" Name="ButtonSaveChanges" Content="Save Changes" FontFamily="/Fonts/#Proxima Nova Bold"  FontSize="16" HorizontalAlignment="Center" Margin="0,309,0,0" VerticalAlignment="Top" Height="36" Width="188" Click="ButtonSaveChanges_Click" Background="#FF53D14D">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBox Name="TextBoxUsername" HorizontalAlignment="Left" Margin="243,150,0,0" Text="{Binding Username}" TextWrapping="Wrap" VerticalAlignment="Top" Width="287" Background="#FFECECEC"/>
+            <TextBox Name="TextBoxName"  HorizontalAlignment="Left" Margin="243,95,0,0" Text="{Binding ProfileName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="287" Background="#FFECECEC"/>
+            <PasswordBox Name="TextBoxPassword" HorizontalAlignment="Left" Margin="243,205,0,0" VerticalAlignment="Top" Width="287" Background="#FFECECEC"/>
+            <PasswordBox Name="TextBoxNewPassword" HorizontalAlignment="Left" Margin="243,260,0,0" VerticalAlignment="Top" Width="287" Background="#FFECECEC"/>
+            <Button Name="ButtonDeleteAccount"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="16" BorderThickness="0"   Foreground="Red" Content="Delete Account" HorizontalAlignment="Center" Margin="0,351,0,0" VerticalAlignment="Top" Click="ButtonDeleteAccount_Click" Background="{x:Null}"/>
+        </Grid>
+    </Border>
+</Window>

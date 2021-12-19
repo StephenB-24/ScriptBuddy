@@ -1,0 +1,52 @@
+﻿<Window x:Class="ScriptBuddy.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScriptBuddy"
+        mc:Ignorable="d"
+        Title="Script Buddy 😊 - Create Account" 
+        Height="350" Width="350"
+        ResizeMode="NoResize" 
+        Style="{StaticResource DefaultFont}" MouseDown="MouseDown_DragScreen"  WindowStyle="None"  AllowsTransparency="True" 
+        Background="Transparent"
+        WindowStartupLocation="Manual" Left="80" Top="80">
+    <Border CornerRadius="20" Background="#FF272537">
+        <Border.Clip>
+            <RectangleGeometry RadiusX="23"
+                               RadiusY="20"
+                               Rect="0,0,350,350"/>
+        </Border.Clip>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,0,0,0">
+                <Image HorizontalAlignment="Center" Source="/img/icon.png" Margin="140,10,100,0" Height="64" Width="64" Stretch="Uniform"/>
+                <Button x:Name="CloseButton" Content="X" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseButton_Click" Width="40" Height="40" Foreground="White" Background="#FF272537" BorderBrush="{x:Null}"/>
+            </StackPanel>
+            <Label  FontFamily="/Fonts/#Proxima Nova Bold" HorizontalAlignment="Center" FontSize="20" Foreground="White">Create a new account</Label>
+            <StackPanel x:Name="StackPanelCredentials" Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Label x:Name="LabelProfileName"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="20" Content="ProfileName" Foreground="White"/>
+                    <Label x:Name="LabelUsername"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="20" Content="Username" Foreground="White"/>
+                    <Label x:Name="LabelPassword"  FontFamily="/Fonts/#Proxima Nova Bold" FontSize="20" Content="Password" Foreground="White"/>
+                    <Label x:Name="LabelConfirmPassword" FontFamily="/Fonts/#Proxima Nova Bold"  FontSize="20" Content="Confirm Password" Foreground="White"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <TextBox x:Name="TextBoxProfileName" Height="{Binding ActualHeight, ElementName=LabelProfileName, Mode=OneWay}" Width="150" FontSize="20" Background="#FFECECEC"/>
+                    <TextBox x:Name="TextBoxUsername" Height="{Binding ActualHeight, ElementName=LabelUsername, Mode=OneWay}" Width="150" FontSize="20" Background="#FFECECEC"/>
+                    <PasswordBox x:Name="PasswordBoxPassword" Height="{Binding ActualHeight, ElementName=LabelPassword, Mode=OneWay}" Width="150" FontSize="20" Background="#FFECECEC"/>
+                    <PasswordBox x:Name="PasswordBoxPasswordConfirm" Height="{Binding ActualHeight, ElementName=LabelConfirmPassword, Mode=OneWay}" Width="150" FontSize="20" Background="#FFECECEC"/>
+                </StackPanel>
+            </StackPanel>
+            <Button  Margin="10" FontFamily="/Fonts/#Proxima Nova Bold" x:Name="ButtonRegister" Width="190" FontSize="20" Click="ButtonRegister_Click" Content="Create Account" Height="39" Background="#FFD14D9B">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <StaticResource ResourceKey="ButtonTheme"/>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </Border>
+</Window>
