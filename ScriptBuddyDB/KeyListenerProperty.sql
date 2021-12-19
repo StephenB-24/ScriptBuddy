@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[KeyListenerProperty]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [ActionId] INT NOT NULL, 
     [Key] VARCHAR(255) NOT NULL, 
     [ActionEndPosition] INT NOT NULL, 
