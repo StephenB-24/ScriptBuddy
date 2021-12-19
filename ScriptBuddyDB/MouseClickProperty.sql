@@ -5,4 +5,5 @@
     [Button] VARCHAR(30) NOT NULL, 
     [ClickType] VARCHAR(5) NOT NULL, 
     CONSTRAINT [FK_MouseClickProperty_Action] FOREIGN KEY (ActionId) REFERENCES Action(Id)
+    ON DELETE CASCADE
 )

@@ -4,4 +4,5 @@
     [ActionId] INT NOT NULL, 
     [MediaKey] VARCHAR(45) NOT NULL, 
     CONSTRAINT [FK_MediaKeyProperty_Action] FOREIGN KEY (ActionId) REFERENCES Action(Id)
+    ON DELETE CASCADE
 )

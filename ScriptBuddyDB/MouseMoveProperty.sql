@@ -5,4 +5,5 @@
     [XPosition] INT NOT NULL,
     [YPosition] INT NOT NULL, 
     CONSTRAINT [FK_MouseMoveProperty_Action] FOREIGN KEY (ActionId) REFERENCES Action(Id)
+    ON DELETE CASCADE
 )

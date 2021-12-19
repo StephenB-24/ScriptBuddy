@@ -91,8 +91,6 @@ namespace ScriptBuddy.Models
             {
                 entity.ToTable("KeyListenerProperty");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Key)
                     .IsRequired()
                     .HasMaxLength(255)
@@ -136,7 +134,6 @@ namespace ScriptBuddy.Models
                 entity.HasOne(d => d.Action)
                     .WithMany(p => p.MediaKeyProperties)
                     .HasForeignKey(d => d.ActionId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_MediaKeyProperty_Action");
             });
 
@@ -157,7 +154,6 @@ namespace ScriptBuddy.Models
                 entity.HasOne(d => d.Action)
                     .WithMany(p => p.MouseClickProperties)
                     .HasForeignKey(d => d.ActionId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_MouseClickProperty_Action");
             });
 
@@ -172,7 +168,6 @@ namespace ScriptBuddy.Models
                 entity.HasOne(d => d.Action)
                     .WithMany(p => p.MouseMoveProperties)
                     .HasForeignKey(d => d.ActionId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_MouseMoveProperty_Action");
             });
 
@@ -180,12 +175,9 @@ namespace ScriptBuddy.Models
             {
                 entity.ToTable("PauseProperty");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.HasOne(d => d.Action)
                     .WithMany(p => p.PauseProperties)
                     .HasForeignKey(d => d.ActionId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_PauseProperty_Action");
             });
 
