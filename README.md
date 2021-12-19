@@ -1,6 +1,6 @@
 Important Note: to get the program to run properly, either:
 1) Right click the database and publish it, then run ScriptBuddy, or
-2) Set multiple start-up projects for the solution, one for the "ScriptBuddy" project and one for the "ScriptBuddyDB" project.
+2) Set multiple start-up projects for the solution, include both the"ScriptBuddy" project and the "ScriptBuddyDB" project.
 
 # ScriptBuddy
 ScriptBuddy is a beginner-friendly AutoHotKey script creation tool. 
