@@ -89,7 +89,7 @@ This project was made for CS 341 by:
 - Stephen Behnke
 - Matthew Kotras
 - Hailey Vadnais
-- Sebastian Vang.
+- Sebastian Vang
 
 This specific GitHub repository is a copy of the original private project.
 The project originally ran on a MySql database provided by the school, and was converted to use a local sql database.
